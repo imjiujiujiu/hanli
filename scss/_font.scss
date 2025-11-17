@@ -1,0 +1,53 @@
+// Font Style: LXGW WenKai TC
+@import url("https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@100..900&display=swap");
+// Font Style: Google Noto Sans TC
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
+
+.lxgw-wenkai {
+  font-family: "LXGW WenKai TC", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.noto-sans {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", "STHeiti", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// 字重
+$font-weight: (
+  Thin: 100,
+  ExLight: 200,
+  Light: 300,
+  Regular: 400,
+  Medium: 500,
+  SemiBold: 600,
+  Bold: 700,
+  ExBold: 900,
+);
+
+@function weight($key) {
+  @return map-get($font-weight, $key);
+}
+
+// 用法：font-weight: weight(Thin);
+
+@mixin font($size: 16, $weight: Medium) {
+  font-size: px($size);
+  font-weight: map-get($font-weight, $weight);
+}
+
+// 用法：@include font(16,Medium);
+
+.vertical {
+  writing-mode: vertical-lr;
+  font-size: px(28);
+
+  @include max-to(mobile) {
+    writing-mode: horizontal-tb;
+  }
+}

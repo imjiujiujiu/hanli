@@ -1,0 +1,105 @@
+/* -- Global.scss -- */
+/* 反白選取樣式 */
+::-moz-selection {
+  background-color: color(secondary);
+  color: color(white);
+}
+
+::selection {
+  background-color: color(secondary);
+  color: color(white);
+}
+
+::-webkit-scrollbar {
+  width: px(8);
+  background-color: transparent;
+  border-radius: px(4);
+}
+
+::-webkit-scrollbar-thumb {
+  width: px(8);
+  background-color: color(secondary);
+  border-radius: px(4);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+* {
+  font-family: "Noto Sans TC", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: color(secondary-100);
+  color: color(primary-850);
+  line-height: 2;
+  overflow-x: hidden;
+}
+
+.main-logo {
+  height: px(44);
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  font-size: px(48);
+  font-weight: weight(Bold);
+  font-family: "LXGW WenKai TC", cursive;
+  min-width: max-content;
+}
+
+h2 {
+  font-size: px(36);
+  font-weight: weight(Bold);
+  font-family: "LXGW WenKai TC", cursive;
+  min-width: max-content;
+  text-align: center;
+  position: relative;
+  margin-bottom: px(60);
+
+  @include max-to(pad) {
+    margin-bottom: px(20);
+  }
+}
+
+.small {
+  font-size: px(14);
+  font-weight: weight(Regular);
+}
+
+a {
+  @include a-color;
+}
+
+ul {
+  margin-top: px(24);
+  line-height: 2;
+}
+
+.container {
+  width: px(1200);
+  margin: auto;
+}
+
+button,
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: px(24) px(48);
+  font-size: px(32);
+  background-color: color(secondary);
+  color: color(white);
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  @include hover {
+    background-color: color(secondary-600);
+  }
+}

@@ -1,0 +1,372 @@
+@charset "UTF-8";
+/* reset css */
+@import url("https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+section,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding-left: 0;
+  line-height: initial;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+:focus {
+  outline: 0;
+}
+
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button {
+  border: 0;
+}
+
+.lxgw-wenkai {
+  font-family: "LXGW WenKai TC", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.noto-sans {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", "STHeiti", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.vertical {
+  writing-mode: vertical-lr;
+  font-size: 1.75rem;
+}
+@media (max-width: 32.25rem) {
+  .vertical {
+    writing-mode: horizontal-tb;
+  }
+}
+
+/* -- Global.scss -- */
+/* 反白選取樣式 */
+::-moz-selection {
+  background-color: #c98931;
+  color: #ffffff;
+}
+
+::selection {
+  background-color: #c98931;
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  background-color: transparent;
+  border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 0.5rem;
+  background-color: #c98931;
+  border-radius: 0.25rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+* {
+  font-family: "Noto Sans TC", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f7eddf;
+  color: #101c21;
+  line-height: 2;
+  overflow-x: hidden;
+}
+
+.main-logo {
+  height: 2.75rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: "LXGW WenKai TC", cursive;
+  min-width: max-content;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  font-family: "LXGW WenKai TC", cursive;
+  min-width: max-content;
+  text-align: center;
+  position: relative;
+  margin-bottom: 3.75rem;
+}
+@media (max-width: 64rem) {
+  h2 {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.small {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+a {
+  color: #18404f;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #c98931;
+}
+
+ul {
+  margin-top: 1.5rem;
+  line-height: 2;
+}
+
+.container {
+  width: 75rem;
+  margin: auto;
+}
+
+button,
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 3rem;
+  font-size: 2rem;
+  background-color: #c98931;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+@media (hover: hover) {
+  button:hover,
+  .btn:hover {
+    background-color: #a16e27;
+  }
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem 4.5rem;
+}
+
+#keyvision {
+  background-image: url("../images/KV.png");
+  background-size: cover;
+  background-color: #101c21;
+  min-height: 100svh;
+  height: 60svw;
+  width: 100dvw;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 2.5rem;
+}
+#keyvision .desc {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 3.75rem 3rem;
+  margin-top: 2.5rem;
+}
+#keyvision .desc p:not(:last-child) {
+  margin-bottom: 1.75rem;
+}
+
+#major {
+  padding: 7.5rem 0;
+}
+#major .items {
+  display: flex;
+  justify-content: center;
+  gap: 0.875rem;
+  flex-wrap: wrap;
+  margin-bottom: 7.5rem;
+}
+#major .items li {
+  color: #ffffff;
+  width: 15rem;
+  height: 11.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+#major .items li i {
+  color: #c98931;
+  font-size: 3.75rem;
+}
+#major .items li:nth-child(odd) {
+  background-color: #203841;
+}
+#major .items li:nth-child(even) {
+  background-color: #18404f;
+}
+#major button {
+  margin: auto;
+}
+
+footer {
+  background-color: #18404f;
+  color: #ffffff;
+  padding: 2.5rem 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+footer .contact {
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+}
+footer .contact a {
+  color: #ffffff;
+}
+@media (hover: hover) {
+  footer .contact a:hover {
+    text-decoration: none;
+  }
+}
+footer .contact li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1rem;
+  font-size: 0.875rem;
+}
+footer .contact li i {
+  color: #99b1ba;
+  font-size: 1.5rem;
+}
+footer .contact li img {
+  width: 1.5rem;
+}
+footer .contact li:not(:last-child)::after {
+  content: "";
+  background-color: #c98931;
+  display: block;
+  height: 0.25rem;
+  width: 0.25rem;
+  border-radius: 0.25rem;
+  margin-left: 0.75rem;
+}

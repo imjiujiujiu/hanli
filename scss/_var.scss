@@ -1,0 +1,85 @@
+// 尺寸
+@function px($key) {
+  @return calc($key / 16 * 1rem);
+}
+
+// 用法：
+// margin: px(20) px(16);
+
+// RWD 斷點
+$breakpoints: (
+  pc: px(1440),
+  laptop: px(1200),
+  pad: px(1024),
+  small-pad: px(768),
+  mobile: px(516),
+  small-mobile: px(320),
+);
+
+@mixin max-to($bp) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $bp) {
+    // Prints a media query based on the value
+    @media (max-width: map-get($breakpoints, $bp)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$bp}`. "
+        +"Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// 用法：
+// @include max-to(pad) {
+//     ...
+//     <= 768px 的樣式內容
+// }
+
+// 色彩定義
+$colors: (
+  primary: #18404f,
+  secondary: #c98931,
+  white: #ffffff,
+  gray: #595757,
+
+  primary-100: #bbcdd4,
+  primary-200: #99b1ba,
+  primary-700: #203841,
+  primary-850: #101c21,
+
+  secondary-100: #f7eddf,
+  secondary-600: #a16e27,
+  secondary-900: #281b0a,
+);
+
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+// 用法：
+// color: color(primary);
+// background-color: color(gray-8);
+
+// 超連結顏色
+@mixin a-color($default: primary, $hover: secondary) {
+  color: color($default);
+  transition: color 0.2s;
+
+  &:hover {
+    color: color($hover);
+  }
+}
+
+// 用法：
+// @include a-color(color(primary),color(primary-6));
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

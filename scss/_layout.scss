@@ -1,0 +1,123 @@
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: px(12) px(72);
+}
+
+#keyvision {
+  background-image: url("../images/KV.png");
+  background-size: cover;
+  background-color: color(primary-850);
+  min-height: 100svh;
+  height: 60svw;
+  width: 100dvw;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: px(40);
+
+  .desc {
+    background-color: rgba(color(white), 0.9);
+    padding: px(60) px(48);
+    margin-top: px(40);
+
+    p:not(:last-child) {
+      margin-bottom: px(28);
+    }
+  }
+}
+
+#major {
+  padding: px(120) 0;
+
+  .items {
+    display: flex;
+    justify-content: center;
+    gap: px(14);
+    flex-wrap: wrap;
+    margin-bottom: px(120);
+
+    li {
+      color: color(white);
+      width: px(240);
+      height: px(180);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: px(12);
+      text-align: center;
+
+      i {
+        color: color(secondary);
+        font-size: px(60);
+      }
+
+      &:nth-child(odd) {
+        background-color: color(primary-700);
+      }
+
+      &:nth-child(even) {
+        background-color: color(primary);
+      }
+    }
+  }
+
+  button {
+    margin: auto;
+  }
+}
+
+footer {
+  background-color: color(primary);
+  color: color(white);
+  padding: px(40) px(72);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .contact {
+    display: flex;
+    gap: px(20);
+    margin: 0;
+
+    a {
+      color: color(white);
+
+      @include hover {
+        text-decoration: none;
+      }
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: px(8);
+      line-height: px(16);
+      font-size: px(14);
+
+      i {
+        color: color(primary-200);
+        font-size: px(24);
+      }
+
+      img {
+        width: px(24);
+      }
+
+      &:not(:last-child) {
+        &::after {
+          content: "";
+          background-color: color(secondary);
+          display: block;
+          height: px(4);
+          width: px(4);
+          border-radius: px(4);
+          margin-left: px(12);
+        }
+      }
+    }
+  }
+}
