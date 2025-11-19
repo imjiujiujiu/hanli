@@ -204,6 +204,11 @@ h1 {
   font-family: "LXGW WenKai TC", cursive;
   min-width: max-content;
 }
+@media (max-width: 64rem) {
+  h1 {
+    font-size: 1.75rem;
+  }
+}
 
 h2 {
   font-size: 2.25rem;
@@ -239,7 +244,7 @@ ul {
 }
 
 .container {
-  width: 75rem;
+  max-width: 75rem;
   margin: auto;
 }
 
@@ -269,10 +274,16 @@ header {
   right: 0;
   padding: 0.75rem 4.5rem;
 }
+@media (max-width: 64rem) {
+  header {
+    padding: 0.75rem 1.25rem;
+  }
+}
 
 #keyvision {
   background-image: url("../images/KV.png");
   background-size: cover;
+  background-position: center;
   background-color: #101c21;
   min-height: 100svh;
   height: 60svw;
@@ -290,6 +301,17 @@ header {
 #keyvision .desc p:not(:last-child) {
   margin-bottom: 1.75rem;
 }
+@media (max-width: 64rem) {
+  #keyvision {
+    padding: 6.25rem 1.25rem 1.25rem;
+    align-items: flex-start;
+    background-position: 40% center;
+    height: auto;
+  }
+  #keyvision .desc {
+    padding: 1.5rem 1.25rem;
+  }
+}
 
 #major {
   padding: 7.5rem 0;
@@ -303,14 +325,16 @@ header {
 }
 #major .items li {
   color: #ffffff;
-  width: 15rem;
+  flex: 15rem;
+  max-width: 15rem;
   height: 11.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.75rem;
   text-align: center;
+  padding: 1.25rem;
 }
 #major .items li i {
   color: #c98931;
@@ -325,6 +349,33 @@ header {
 #major button {
   margin: auto;
 }
+@media (max-width: 64rem) {
+  #major {
+    padding: 3.75rem 1.25rem;
+  }
+  #major .items li {
+    max-width: none;
+  }
+  #major button {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 32.25rem) {
+  #major .items {
+    gap: 0.5rem;
+    margin-bottom: 3.75rem;
+  }
+  #major .items li {
+    flex: calc(50% - 0.25rem);
+    height: auto;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  #major .items li i {
+    font-size: 3rem;
+  }
+}
 
 footer {
   background-color: #18404f;
@@ -333,11 +384,14 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.75rem;
+  flex-wrap: wrap;
 }
 footer .contact {
   display: flex;
   gap: 1.25rem;
   margin: 0;
+  flex-wrap: wrap;
 }
 footer .contact a {
   color: #ffffff;
@@ -369,4 +423,19 @@ footer .contact li:not(:last-child)::after {
   width: 0.25rem;
   border-radius: 0.25rem;
   margin-left: 0.75rem;
+}
+@media (max-width: 32.25rem) {
+  footer {
+    padding: 2rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+  footer .contact {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  footer .contact li:not(:last-child)::after {
+    display: none;
+  }
 }

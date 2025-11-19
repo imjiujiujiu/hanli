@@ -52,6 +52,10 @@ h1 {
   font-weight: weight(Bold);
   font-family: "LXGW WenKai TC", cursive;
   min-width: max-content;
+
+  @include max-to(pad) {
+    font-size: px(28);
+  }
 }
 
 h2 {
@@ -83,7 +87,7 @@ ul {
 }
 
 .container {
-  width: px(1200);
+  max-width: px(1200);
   margin: auto;
 }
 

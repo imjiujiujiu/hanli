@@ -4,11 +4,16 @@ header {
   left: 0;
   right: 0;
   padding: px(12) px(72);
+
+  @include max-to(pad) {
+    padding: px(12) px(20);
+  }
 }
 
 #keyvision {
   background-image: url("../images/KV.png");
   background-size: cover;
+  background-position: center;
   background-color: color(primary-850);
   min-height: 100svh;
   height: 60svw;
@@ -27,6 +32,17 @@ header {
       margin-bottom: px(28);
     }
   }
+
+  @include max-to(pad) {
+    padding: px(100) px(20) px(20);
+    align-items: flex-start;
+    background-position: 40% center;
+    height: auto;
+
+    .desc {
+      padding: px(24) px(20);
+    }
+  }
 }
 
 #major {
@@ -41,14 +57,16 @@ header {
 
     li {
       color: color(white);
-      width: px(240);
+      flex: px(240);
+      max-width: px(240);
       height: px(180);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       gap: px(12);
       text-align: center;
+      padding: px(20);
 
       i {
         color: color(secondary);
@@ -68,6 +86,39 @@ header {
   button {
     margin: auto;
   }
+
+  @include max-to(pad) {
+    padding: px(60) px(20);
+
+    .items {
+      li {
+        max-width: none;
+      }
+    }
+
+    button {
+      padding: px(16) px(32);
+      font-size: px(24);
+    }
+  }
+
+  @include max-to(mobile) {
+    .items {
+      gap: px(8);
+      margin-bottom: px(60);
+
+      li {
+        flex: calc(50% - px(4));
+        height: auto;
+        gap: px(8);
+        justify-content: center;
+
+        i {
+          font-size: px(48);
+        }
+      }
+    }
+  }
 }
 
 footer {
@@ -77,11 +128,14 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: px(28);
+  flex-wrap: wrap;
 
   .contact {
     display: flex;
     gap: px(20);
     margin: 0;
+    flex-wrap: wrap;
 
     a {
       color: color(white);
@@ -116,6 +170,26 @@ footer {
           width: px(4);
           border-radius: px(4);
           margin-left: px(12);
+        }
+      }
+    }
+  }
+
+  @include max-to(mobile) {
+    padding: px(32) px(20);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: px(40);
+
+    .contact {
+      flex-direction: column;
+      gap: px(12);
+
+      li {
+        &:not(:last-child) {
+          &::after {
+            display: none;
+          }
         }
       }
     }
