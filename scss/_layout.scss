@@ -4,9 +4,106 @@ header {
   left: 0;
   right: 0;
   padding: px(12) px(72);
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+
+  nav {
+    display: flex;
+    align-items: center;
+
+    button {
+      display: none;
+    }
+
+    .navbar {
+      ul {
+        margin-top: 0;
+        display: flex;
+        gap: px(60);
+
+        li {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: px(8);
+          line-height: 1;
+
+          a {
+            text-decoration: none;
+          }
+
+          &.active {
+            &::after {
+              content: "";
+              height: px(2);
+              width: px(40);
+              background-color: color(secondary);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.header-dark {
+    background-color: color(primary);
+
+    nav {
+      ul {
+        li {
+          a {
+            @include a-color(white, secondary);
+          }
+        }
+      }
+    }
+  }
 
   @include max-to(pad) {
     padding: px(12) px(20);
+  }
+
+  @include max-to(small-pad) {
+    position: fixed;
+
+    nav {
+      button {
+        display: block;
+        padding: 0;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: px(44);
+        width: px(44);
+      }
+
+      .navbar {
+        overflow: hidden;
+        position: fixed;
+        top: px(76);
+        right: 0;
+        left: 0;
+        height: 0;
+        max-height: 0;
+        transition: all 0.2s;
+        background-color: color(primary);
+        padding: 0 px(20);
+
+        ul {
+          justify-content: flex-end;
+        }
+      }
+
+      &.open {
+        .navbar {
+          height: auto;
+          max-height: px(300);
+          padding: px(8) px(20) px(20) px(20);
+        }
+      }
+    }
   }
 }
 
@@ -17,7 +114,7 @@ header {
   background-color: color(primary-850);
   min-height: 100svh;
   height: 60svw;
-  width: 100dvw;
+  width: 100svw;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -46,7 +143,7 @@ header {
 }
 
 #major {
-  padding: px(120) 0;
+  padding: px(120) px(20);
 
   .items {
     display: flex;
@@ -116,6 +213,137 @@ header {
         i {
           font-size: px(48);
         }
+      }
+    }
+  }
+}
+
+#ourTeam {
+  padding: px(160) px(20) px(100);
+  position: relative;
+
+  .attorney,
+  .teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: px(48);
+
+    li {
+      cursor: pointer;
+      padding: px(12);
+      transition: background-color 0.2s;
+
+      .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        i {
+          color: color(secondary);
+          margin-top: px(10);
+        }
+      }
+
+      @include hover {
+        background-color: rgba(color(primary-100), 0.2);
+      }
+    }
+  }
+
+  .attorney {
+    justify-content: center;
+
+    li {
+      color: color(white);
+      flex: 1;
+      max-width: calc((100% - px(48) * 3) / 4);
+      &:nth-child(4n),
+      &:nth-child(4n-1) {
+        margin-top: px(300);
+        color: color(primary-800);
+      }
+    }
+  }
+
+  .teams {
+    margin-top: px(80);
+
+    li {
+      display: flex;
+      gap: px(12);
+      align-items: flex-end;
+      flex: 1;
+      max-width: calc(50% - px(24));
+      min-height: px(224);
+
+      .photo {
+        flex: px(200);
+        max-width: px(200);
+        height: px(200);
+        overflow: hidden;
+        border-radius: px(500);
+
+        img {
+          margin-bottom: px(-10);
+        }
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 35svw;
+    right: 0;
+    left: 0;
+    height: 25svw;
+    background-color: color(primary);
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-image: url("../images/IMG_9196.jpg");
+    background-size: cover;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.05;
+    z-index: -1;
+  }
+
+  @include max-to(laptop) {
+    &::before {
+      height: 30svw;
+    }
+  }
+
+  @include max-to(pad) {
+    &::before {
+      height: 35svw;
+    }
+  }
+
+  @include max-to(small-pad) {
+    .attorney {
+      li {
+        max-width: calc((100% - px(48)) / 2);
+        color: color(primary-800);
+      }
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  @include max-to(mobile) {
+    .attorney {
+      li {
+        max-width: none;
       }
     }
   }

@@ -72,6 +72,36 @@ h2 {
   }
 }
 
+h4 {
+  font-size: px(24);
+  font-weight: bold;
+  font-family: "LXGW WenKai TC", cursive;
+
+  span {
+    font-size: px(16);
+    font-weight: regular;
+    font-family: "LXGW WenKai TC", cursive;
+  }
+}
+
+h5 {
+  font-size: px(20);
+  font-weight: bold;
+  font-family: "LXGW WenKai TC", cursive;
+
+  span {
+    font-size: px(16);
+    font-weight: regular;
+    font-family: "LXGW WenKai TC", cursive;
+  }
+}
+
+h6 {
+  font-size: px(16);
+  font-weight: regular;
+  font-family: "LXGW WenKai TC", cursive;
+}
+
 .small {
   font-size: px(14);
   font-weight: weight(Regular);

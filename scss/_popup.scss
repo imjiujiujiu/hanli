@@ -1,0 +1,178 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(color(gray), 0.75);
+  z-index: 4;
+  backdrop-filter: blur(px(2));
+
+  &.on-popup {
+    // display: none;
+    z-index: 5;
+
+    &.show {
+      display: block;
+    }
+  }
+}
+
+.popup {
+  display: none;
+  flex-direction: column;
+  gap: px(24);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: px(80) px(4) px(40) px(80);
+  background-color: color(white);
+  z-index: 5;
+  width: calc(100svw - px(120));
+
+  .action {
+    display: flex;
+    align-items: center;
+    gap: px(4);
+    position: absolute;
+    top: px(20);
+    right: px(28);
+    padding: px(12);
+    font-family: Apple Chancery, cursive;
+    color: color(secondary);
+    cursor: pointer;
+
+    i {
+      width: px(32);
+      height: px(32);
+      font-size: fontsize(24);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .popup-container {
+    max-height: calc(100dvh - px(240));
+    overflow-y: auto;
+    padding-right: px(68);
+    position: relative;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: color(secondary-300);
+      height: px(8);
+    }
+  }
+
+  &.show {
+    display: flex;
+  }
+
+  &.teams {
+    .popup-container {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      gap: px(24);
+
+      .photo {
+        flex: px(240);
+        flex-shrink: 0;
+        position: sticky;
+        top: 0;
+        text-align: center;
+
+        img {
+          max-width: px(240);
+        }
+
+        h4 {
+          margin-bottom: px(24);
+        }
+      }
+
+      .desc {
+        dl {
+          dd {
+            margin-bottom: px(24);
+
+            ul {
+              margin: 0;
+              list-style-type: disc;
+              margin-left: px(24);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include max-to(pad) {
+    padding: px(64) px(4) px(24) px(24);
+
+    .action {
+      top: px(8);
+      right: px(8);
+      padding: px(8);
+    }
+
+    .popup-container {
+      padding-right: px(20);
+    }
+
+    &.teams {
+      .popup-container {
+        .photo {
+          flex: px(180);
+          flex-shrink: 0;
+
+          img {
+            max-width: px(180);
+          }
+
+          h4 {
+            line-height: 1.5;
+
+            span {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include max-to(small-pad) {
+    &.teams {
+      .popup-container {
+        flex-direction: column;
+        align-items: center;
+
+        .photo {
+          flex: 1;
+          width: auto;
+          position: relative;
+
+          img {
+            max-width: px(200);
+          }
+
+          h4 {
+            span {
+              display: inline;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include max-to(mobile) {
+    &.teams {
+      .popup-container {
+        word-break: break-all;
+      }
+    }
+  }
+}
