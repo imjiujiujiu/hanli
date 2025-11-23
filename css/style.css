@@ -473,13 +473,13 @@ header nav .navbar ul li.active::after {
   background-color: #c98931;
 }
 header.header-dark {
-  background-color: #18404f;
+  background-color: #18404f !important;
 }
-header.header-dark nav ul li a {
+header.header-dark nav .navbar ul li a {
   color: #ffffff;
   transition: color 0.2s;
 }
-header.header-dark nav ul li a:hover {
+header.header-dark nav .navbar ul li a:hover {
   color: #c98931;
 }
 @media (max-width: 64rem) {
@@ -500,6 +500,7 @@ header.header-dark nav ul li a:hover {
     justify-content: center;
     height: 2.75rem;
     width: 2.75rem;
+    color: #18404f;
   }
   header nav .navbar {
     overflow: hidden;
@@ -510,7 +511,6 @@ header.header-dark nav ul li a:hover {
     height: 0;
     max-height: 0;
     transition: all 0.2s;
-    background-color: #18404f;
     padding: 0 1.25rem;
   }
   header nav .navbar ul {
@@ -520,6 +520,18 @@ header.header-dark nav ul li a:hover {
     height: auto;
     max-height: 18.75rem;
     padding: 0.5rem 1.25rem 1.25rem 1.25rem;
+  }
+  header.header-dark nav button {
+    color: #ffffff;
+  }
+  header.header-dark nav .navbar {
+    background-color: #18404f !important;
+  }
+  header.sticky {
+    background-color: #f7eddf;
+  }
+  header.sticky nav .navbar {
+    background-color: #f7eddf;
   }
 }
 
@@ -553,6 +565,11 @@ header.header-dark nav ul li a:hover {
   }
   #keyvision .desc {
     padding: 1.5rem 1.25rem;
+  }
+}
+@media (max-width: 32.25rem) {
+  #keyvision {
+    padding-top: 7.5rem;
   }
 }
 

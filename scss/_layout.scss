@@ -47,13 +47,15 @@ header {
   }
 
   &.header-dark {
-    background-color: color(primary);
+    background-color: color(primary) !important;
 
     nav {
-      ul {
-        li {
-          a {
-            @include a-color(white, secondary);
+      .navbar {
+        ul {
+          li {
+            a {
+              @include a-color(white, secondary);
+            }
           }
         }
       }
@@ -77,6 +79,7 @@ header {
         justify-content: center;
         height: px(44);
         width: px(44);
+        color: color(primary);
       }
 
       .navbar {
@@ -88,7 +91,6 @@ header {
         height: 0;
         max-height: 0;
         transition: all 0.2s;
-        background-color: color(primary);
         padding: 0 px(20);
 
         ul {
@@ -101,6 +103,28 @@ header {
           height: auto;
           max-height: px(300);
           padding: px(8) px(20) px(20) px(20);
+        }
+      }
+    }
+
+    &.header-dark {
+      nav {
+        button {
+          color: color(white);
+        }
+
+        .navbar {
+          background-color: color(primary) !important;
+        }
+      }
+    }
+
+    &.sticky {
+      background-color: color(secondary-100);
+
+      nav {
+        .navbar {
+          background-color: color(secondary-100);
         }
       }
     }
@@ -139,6 +163,10 @@ header {
     .desc {
       padding: px(24) px(20);
     }
+  }
+
+  @include max-to(mobile) {
+    padding-top: px(120);
   }
 }
 
