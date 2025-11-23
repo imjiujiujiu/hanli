@@ -511,7 +511,6 @@ header.header-dark nav .navbar ul li a:hover {
     height: 0;
     max-height: 0;
     transition: all 0.2s;
-    background-color: #18404f;
     padding: 0 1.25rem;
   }
   header nav .navbar ul {
@@ -521,6 +520,18 @@ header.header-dark nav .navbar ul li a:hover {
     height: auto;
     max-height: 18.75rem;
     padding: 0.5rem 1.25rem 1.25rem 1.25rem;
+  }
+  header.header-dark nav button {
+    color: #ffffff;
+  }
+  header.header-dark nav .navbar {
+    background-color: #18404f !important;
+  }
+  header.sticky {
+    background-color: #f7eddf;
+  }
+  header.sticky nav .navbar {
+    background-color: #f7eddf;
   }
 }
 
