@@ -169,6 +169,12 @@
   }
 
   @include max-to(mobile) {
+    width: calc(100svw - px(40));
+
+    .popup-container {
+      max-height: calc(100dvh - px(160));
+    }
+
     &.teams {
       .popup-container {
         word-break: break-all;

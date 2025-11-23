@@ -283,6 +283,12 @@ button {
   }
 }
 @media (max-width: 32.25rem) {
+  .popup {
+    width: calc(100svw - 2.5rem);
+  }
+  .popup .popup-container {
+    max-height: calc(100dvh - 10rem);
+  }
   .popup.teams .popup-container {
     word-break: break-all;
   }
