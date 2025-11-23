@@ -491,6 +491,9 @@ header.header-dark nav ul li a:hover {
   header {
     position: fixed;
   }
+  header.header-dark nav button {
+    color: #ffffff;
+  }
   header nav button {
     display: block;
     padding: 0;
@@ -500,6 +503,7 @@ header.header-dark nav ul li a:hover {
     justify-content: center;
     height: 2.75rem;
     width: 2.75rem;
+    color: #18404f;
   }
   header nav .navbar {
     overflow: hidden;
