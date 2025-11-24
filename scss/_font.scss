@@ -1,7 +1,5 @@
-// Font Style: LXGW WenKai TC
-@import url("https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@100..900&display=swap");
-// Font Style: Google Noto Sans TC
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
+// Font Style: LXGW WenKai TC, Noto Sans TC, Birthstone Static
+@import url("https://fonts.googleapis.com/css2?family=Birthstone&family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@100..900&display=swap");
 
 .lxgw-wenkai {
   font-family: "LXGW WenKai TC", cursive;
@@ -16,6 +14,12 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+}
+
+.birthstone-regular {
+  font-family: "Birthstone", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 // 字重

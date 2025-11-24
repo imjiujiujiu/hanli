@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /* reset css */
-@import url("https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Birthstone&family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@100..900&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -139,6 +138,12 @@ button {
   font-display: swap;
 }
 
+.birthstone-regular {
+  font-family: "Birthstone", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .vertical {
   writing-mode: vertical-lr;
   font-size: 1.75rem;
@@ -187,7 +192,9 @@ button {
   top: 1.25rem;
   right: 1.75rem;
   padding: 0.75rem;
-  font-family: Apple Chancery, cursive;
+  font-family: "Birthstone", cursive;
+  font-size: 2rem;
+  line-height: 1;
   color: #c98931;
   cursor: pointer;
 }
