@@ -132,10 +132,9 @@ header {
 }
 
 #keyvision {
-  background-image: url("../images/KV.png");
+  background-image: url("../images/.jpg");
   background-size: cover;
   background-position: center;
-  background-color: color(primary-850);
   min-height: 100svh;
   height: 60svw;
   width: 100svw;
@@ -143,6 +142,61 @@ header {
   align-items: flex-end;
   justify-content: center;
   padding: px(40);
+  // background-color: rgba(color(secondary-100), 0.2);
+
+  .kvSwiper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    min-height: 100svh;
+    height: 60svw;
+    width: 100svw;
+    z-index: -1;
+
+    .swiper-wrapper {
+      .swiper-slide {
+        background-size: cover;
+        background-position: bottom;
+
+        &.mask {
+          opacity: 0.8;
+
+          &::after {
+            content: "";
+            z-index: 1;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+              to bottom,
+              rgba(color(secondary-100), 0.8) 0%,
+              rgba(color(secondary-100), 0.5) 5%,
+              rgba(color(secondary-100), 0.1) 15%
+            );
+          }
+        }
+
+        &.slide1 {
+          background-image: url("../images/KV.png");
+          background-position: center;
+        }
+
+        &.slide2 {
+          background-image: url("../images/S__142533003.jpg");
+          background-position: center;
+        }
+
+        &.slide3 {
+          background-image: url("../images/S__142533007.jpg");
+        }
+
+        &.slide4 {
+          background-image: url("../images/S__142533012.jpg");
+        }
+      }
+    }
+  }
 
   .desc {
     background-color: rgba(color(white), 0.9);
@@ -357,10 +411,17 @@ header {
 
   @include max-to(small-pad) {
     .attorney {
+      flex-wrap: wrap;
+
       li {
+        flex: auto;
         max-width: calc((100% - px(48)) / 2);
         color: color(primary-800);
+        margin-top: 0 !important;
       }
+    }
+
+    .teams {
     }
 
     &::before {
@@ -371,6 +432,16 @@ header {
   @include max-to(mobile) {
     .attorney {
       li {
+        max-width: none;
+      }
+    }
+
+    .teams {
+      flex-direction: column;
+
+      li {
+        flex: 100%;
+        width: 100%;
         max-width: none;
       }
     }

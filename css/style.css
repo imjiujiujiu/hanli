@@ -219,29 +219,33 @@ button {
 .popup.show {
   display: flex;
 }
-.popup.teams .popup-container {
+.popup.attorney .popup-container, .popup.teams .popup-container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   gap: 1.5rem;
 }
-.popup.teams .popup-container .photo {
+.popup.attorney .popup-container .photo, .popup.teams .popup-container .photo {
   flex: 15rem;
   flex-shrink: 0;
+  flex-grow: 0;
   position: sticky;
   top: 0;
   text-align: center;
 }
-.popup.teams .popup-container .photo img {
+.popup.attorney .popup-container .photo img, .popup.teams .popup-container .photo img {
   max-width: 15rem;
 }
-.popup.teams .popup-container .photo h4 {
+.popup.attorney .popup-container .photo h4, .popup.teams .popup-container .photo h4 {
   margin-bottom: 1.5rem;
 }
-.popup.teams .popup-container .desc dl dd {
+.popup.attorney .popup-container .desc, .popup.teams .popup-container .desc {
+  flex-grow: 1;
+}
+.popup.attorney .popup-container .desc dl dd, .popup.teams .popup-container .desc dl dd {
   margin-bottom: 1.5rem;
 }
-.popup.teams .popup-container .desc dl dd ul {
+.popup.attorney .popup-container .desc dl dd ul, .popup.teams .popup-container .desc dl dd ul {
   margin: 0;
   list-style-type: disc;
   margin-left: 1.5rem;
@@ -258,34 +262,35 @@ button {
   .popup .popup-container {
     padding-right: 1.25rem;
   }
-  .popup.teams .popup-container .photo {
+  .popup.attorney .popup-container .photo, .popup.teams .popup-container .photo {
     flex: 11.25rem;
     flex-shrink: 0;
+    align-self: flex-start;
   }
-  .popup.teams .popup-container .photo img {
+  .popup.attorney .popup-container .photo img, .popup.teams .popup-container .photo img {
     max-width: 11.25rem;
   }
-  .popup.teams .popup-container .photo h4 {
+  .popup.attorney .popup-container .photo h4, .popup.teams .popup-container .photo h4 {
     line-height: 1.5;
   }
-  .popup.teams .popup-container .photo h4 span {
+  .popup.attorney .popup-container .photo h4 span, .popup.teams .popup-container .photo h4 span {
     display: block;
   }
 }
 @media (max-width: 48rem) {
-  .popup.teams .popup-container {
+  .popup .popup-container {
     flex-direction: column;
     align-items: center;
   }
-  .popup.teams .popup-container .photo {
+  .popup.attorney .photo, .popup.teams .photo {
     flex: 1;
     width: auto;
     position: relative;
   }
-  .popup.teams .popup-container .photo img {
+  .popup.attorney .photo img, .popup.teams .photo img {
     max-width: 12.5rem;
   }
-  .popup.teams .popup-container .photo h4 span {
+  .popup.attorney .photo h4 span, .popup.teams .photo h4 span {
     display: inline;
   }
 }
@@ -296,8 +301,17 @@ button {
   .popup .popup-container {
     max-height: calc(100dvh - 10rem);
   }
-  .popup.teams .popup-container {
+  .popup.attorney .popup-container, .popup.teams .popup-container {
     word-break: break-all;
+    flex-direction: column;
+  }
+  .popup.attorney .popup-container .photo, .popup.teams .popup-container .photo {
+    flex: 100%;
+    width: 100%;
+    position: relative;
+  }
+  .popup.attorney .popup-container .photo img, .popup.teams .popup-container .photo img {
+    max-width: 15rem;
   }
 }
 
@@ -549,10 +563,9 @@ header.header-dark nav .navbar ul li a:hover {
 }
 
 #keyvision {
-  background-image: url("../images/KV.png");
+  background-image: url("../images/.jpg");
   background-size: cover;
   background-position: center;
-  background-color: #101c21;
   min-height: 100svh;
   height: 60svw;
   width: 100svw;
@@ -560,6 +573,45 @@ header.header-dark nav .navbar ul li a:hover {
   align-items: flex-end;
   justify-content: center;
   padding: 2.5rem;
+}
+#keyvision .kvSwiper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  min-height: 100svh;
+  height: 60svw;
+  width: 100svw;
+  z-index: -1;
+}
+#keyvision .kvSwiper .swiper-wrapper .swiper-slide {
+  background-size: cover;
+  background-position: bottom;
+}
+#keyvision .kvSwiper .swiper-wrapper .swiper-slide.mask {
+  opacity: 0.8;
+}
+#keyvision .kvSwiper .swiper-wrapper .swiper-slide.mask::after {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(247, 237, 223, 0.8) 0%, rgba(247, 237, 223, 0.5) 5%, rgba(247, 237, 223, 0.1) 15%);
+}
+#keyvision .kvSwiper .swiper-wrapper .swiper-slide.slide1 {
+  background-image: url("../images/KV.png");
+  background-position: center;
+}
+#keyvision .kvSwiper .swiper-wrapper .swiper-slide.slide2 {
+  background-image: url("../images/S__142533003.jpg");
+  background-position: center;
+}
+#keyvision .kvSwiper .swiper-wrapper .swiper-slide.slide3 {
+  background-image: url("../images/S__142533007.jpg");
+}
+#keyvision .kvSwiper .swiper-wrapper .swiper-slide.slide4 {
+  background-image: url("../images/S__142533012.jpg");
 }
 #keyvision .desc {
   background-color: rgba(255, 255, 255, 0.9);
@@ -750,9 +802,14 @@ header.header-dark nav .navbar ul li a:hover {
   }
 }
 @media (max-width: 48rem) {
+  #ourTeam .attorney {
+    flex-wrap: wrap;
+  }
   #ourTeam .attorney li {
+    flex: auto;
     max-width: calc((100% - 3rem) / 2);
     color: #15262c;
+    margin-top: 0 !important;
   }
   #ourTeam::before {
     display: none;
@@ -760,6 +817,14 @@ header.header-dark nav .navbar ul li a:hover {
 }
 @media (max-width: 32.25rem) {
   #ourTeam .attorney li {
+    max-width: none;
+  }
+  #ourTeam .teams {
+    flex-direction: column;
+  }
+  #ourTeam .teams li {
+    flex: 100%;
+    width: 100%;
     max-width: none;
   }
 }

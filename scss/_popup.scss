@@ -71,6 +71,7 @@
     display: flex;
   }
 
+  &.attorney,
   &.teams {
     .popup-container {
       display: flex;
@@ -81,6 +82,7 @@
       .photo {
         flex: px(240);
         flex-shrink: 0;
+        flex-grow: 0;
         position: sticky;
         top: 0;
         text-align: center;
@@ -95,6 +97,8 @@
       }
 
       .desc {
+        flex-grow: 1;
+
         dl {
           dd {
             margin-bottom: px(24);
@@ -123,11 +127,13 @@
       padding-right: px(20);
     }
 
+    &.attorney,
     &.teams {
       .popup-container {
         .photo {
           flex: px(180);
           flex-shrink: 0;
+          align-self: flex-start;
 
           img {
             max-width: px(180);
@@ -146,24 +152,25 @@
   }
 
   @include max-to(small-pad) {
+    .popup-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &.attorney,
     &.teams {
-      .popup-container {
-        flex-direction: column;
-        align-items: center;
+      .photo {
+        flex: 1;
+        width: auto;
+        position: relative;
 
-        .photo {
-          flex: 1;
-          width: auto;
-          position: relative;
+        img {
+          max-width: px(200);
+        }
 
-          img {
-            max-width: px(200);
-          }
-
-          h4 {
-            span {
-              display: inline;
-            }
+        h4 {
+          span {
+            display: inline;
           }
         }
       }
@@ -177,9 +184,21 @@
       max-height: calc(100dvh - px(160));
     }
 
+    &.attorney,
     &.teams {
       .popup-container {
         word-break: break-all;
+        flex-direction: column;
+
+        .photo {
+          flex: 100%;
+          width: 100%;
+          position: relative;
+
+          img {
+            max-width: px(240);
+          }
+        }
       }
     }
   }
