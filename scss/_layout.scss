@@ -448,6 +448,73 @@ header {
   }
 }
 
+#contact {
+  padding: px(120) px(20);
+
+  .map-iframe {
+    margin-top: px(60);
+    text-align: center;
+
+    iframe {
+      width: px(992);
+      height: px(600);
+      max-width: calc(100svw - px(64));
+      max-height: calc(100svh - px(40));
+      border: none;
+    }
+  }
+}
+
+.contact {
+  display: flex;
+  gap: px(20);
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: px(8);
+    line-height: px(16);
+    font-size: px(14);
+
+    i {
+      color: color(primary-200);
+      font-size: px(24);
+    }
+
+    img {
+      width: px(24);
+    }
+
+    &:not(:last-child) {
+      &::after {
+        content: "";
+        background-color: color(secondary);
+        display: block;
+        height: px(4);
+        width: px(4);
+        border-radius: px(4);
+        margin-left: px(12);
+      }
+    }
+  }
+
+  @include max-to(mobile) {
+    flex-direction: column;
+    gap: px(12);
+
+    li {
+      &:not(:last-child) {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
 footer {
   background-color: color(primary);
   color: color(white);
@@ -459,45 +526,11 @@ footer {
   flex-wrap: wrap;
 
   .contact {
-    display: flex;
-    gap: px(20);
-    margin: 0;
-    flex-wrap: wrap;
-
     a {
       color: color(white);
 
       @include hover {
         text-decoration: none;
-      }
-    }
-
-    li {
-      display: flex;
-      align-items: center;
-      gap: px(8);
-      line-height: px(16);
-      font-size: px(14);
-
-      i {
-        color: color(primary-200);
-        font-size: px(24);
-      }
-
-      img {
-        width: px(24);
-      }
-
-      &:not(:last-child) {
-        &::after {
-          content: "";
-          background-color: color(secondary);
-          display: block;
-          height: px(4);
-          width: px(4);
-          border-radius: px(4);
-          margin-left: px(12);
-        }
       }
     }
   }
@@ -507,18 +540,5 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     gap: px(40);
-
-    .contact {
-      flex-direction: column;
-      gap: px(12);
-
-      li {
-        &:not(:last-child) {
-          &::after {
-            display: none;
-          }
-        }
-      }
-    }
   }
 }
