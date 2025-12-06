@@ -137,3 +137,53 @@ button,
     background-color: color(secondary-600);
   }
 }
+
+.contact {
+  display: flex;
+  gap: px(20);
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: px(8);
+    line-height: px(16);
+    font-size: px(14);
+
+    i {
+      color: color(primary-200);
+      font-size: px(24);
+    }
+
+    img {
+      width: px(24);
+    }
+
+    &:not(:last-child) {
+      &::after {
+        content: "";
+        background-color: color(secondary);
+        display: block;
+        height: px(4);
+        width: px(4);
+        border-radius: px(4);
+        margin-left: px(12);
+      }
+    }
+  }
+
+  @include max-to(mobile) {
+    flex-direction: column;
+    gap: px(12);
+
+    li {
+      &:not(:last-child) {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}

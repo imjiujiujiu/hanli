@@ -131,6 +131,11 @@ header {
   }
 }
 
+section {
+  min-height: calc(100svh - px(120));
+  padding: px(120) px(20);
+}
+
 #keyvision {
   background-image: url("../images/.jpg");
   background-size: cover;
@@ -142,7 +147,6 @@ header {
   align-items: flex-end;
   justify-content: center;
   padding: px(40);
-  // background-color: rgba(color(secondary-100), 0.2);
 
   .kvSwiper {
     position: absolute;
@@ -224,8 +228,6 @@ header {
 }
 
 #major {
-  padding: px(120) px(20);
-
   .items {
     display: flex;
     justify-content: center;
@@ -447,9 +449,15 @@ header {
   }
 }
 
-#contact {
-  padding: px(120) px(20);
+#news,
+#legalColumn {
+  h1 {
+    text-align: center;
+    color: color(secondary);
+  }
+}
 
+#contact {
   .map-iframe {
     margin-top: px(60);
     text-align: center;
@@ -462,52 +470,39 @@ header {
       border: none;
     }
   }
-}
 
-.contact {
-  display: flex;
-  gap: px(20);
-  margin: 0;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  li {
+  .contact-desc {
+    max-width: px(992);
+    margin: px(60) auto;
     display: flex;
-    align-items: center;
-    gap: px(8);
-    line-height: px(16);
-    font-size: px(14);
-
-    i {
-      color: color(primary-200);
-      font-size: px(24);
-    }
-
-    img {
-      width: px(24);
-    }
-
-    &:not(:last-child) {
-      &::after {
-        content: "";
-        background-color: color(secondary);
-        display: block;
-        height: px(4);
-        width: px(4);
-        border-radius: px(4);
-        margin-left: px(12);
-      }
-    }
-  }
-
-  @include max-to(mobile) {
     flex-direction: column;
-    gap: px(12);
+    gap: px(36);
 
-    li {
-      &:not(:last-child) {
-        &::after {
-          display: none;
+    > li {
+      display: flex;
+      flex-direction: column;
+      gap: px(16);
+
+      h6 {
+        font-family: "Noto Sans TC", "Microsoft JhengHei", "STHeiti", sans-serif;
+        font-size: px(18);
+        font-weight: Medium;
+        line-height: 1;
+      }
+
+      ol {
+        list-style-type: decimal;
+        margin-left: px(32);
+      }
+
+      ul {
+        margin-top: 0;
+        margin-bottom: px(8);
+        list-style-type: disc;
+        margin-left: px(20);
+
+        li {
+          line-height: 1.5;
         }
       }
     }

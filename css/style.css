@@ -461,6 +461,46 @@ button,
   }
 }
 
+.contact {
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.contact li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1rem;
+  font-size: 0.875rem;
+}
+.contact li i {
+  color: #99b1ba;
+  font-size: 1.5rem;
+}
+.contact li img {
+  width: 1.5rem;
+}
+.contact li:not(:last-child)::after {
+  content: "";
+  background-color: #c98931;
+  display: block;
+  height: 0.25rem;
+  width: 0.25rem;
+  border-radius: 0.25rem;
+  margin-left: 0.75rem;
+}
+@media (max-width: 32.25rem) {
+  .contact {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .contact li:not(:last-child)::after {
+    display: none;
+  }
+}
+
 header {
   position: absolute;
   top: 0;
@@ -562,6 +602,11 @@ header.header-dark nav .navbar ul li a:hover {
   }
 }
 
+section {
+  min-height: calc(100svh - 7.5rem);
+  padding: 7.5rem 1.25rem;
+}
+
 #keyvision {
   background-image: url("../images/.jpg");
   background-size: cover;
@@ -637,9 +682,6 @@ header.header-dark nav .navbar ul li a:hover {
   }
 }
 
-#major {
-  padding: 7.5rem 1.25rem;
-}
 #major .items {
   display: flex;
   justify-content: center;
@@ -828,9 +870,12 @@ header.header-dark nav .navbar ul li a:hover {
   }
 }
 
-#contact {
-  padding: 7.5rem 1.25rem;
+#news h1,
+#legalColumn h1 {
+  text-align: center;
+  color: #c98931;
 }
+
 #contact .map-iframe {
   margin-top: 3.75rem;
   text-align: center;
@@ -842,45 +887,36 @@ header.header-dark nav .navbar ul li a:hover {
   max-height: calc(100svh - 2.5rem);
   border: none;
 }
-
-.contact {
+#contact .contact-desc {
+  max-width: 62rem;
+  margin: 3.75rem auto;
   display: flex;
-  gap: 1.25rem;
-  margin: 0;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  gap: 2.25rem;
 }
-.contact li {
+#contact .contact-desc > li {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  line-height: 1rem;
-  font-size: 0.875rem;
+  flex-direction: column;
+  gap: 1rem;
 }
-.contact li i {
-  color: #99b1ba;
-  font-size: 1.5rem;
+#contact .contact-desc > li h6 {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", "STHeiti", sans-serif;
+  font-size: 1.125rem;
+  font-weight: Medium;
+  line-height: 1;
 }
-.contact li img {
-  width: 1.5rem;
+#contact .contact-desc > li ol {
+  list-style-type: decimal;
+  margin-left: 2rem;
 }
-.contact li:not(:last-child)::after {
-  content: "";
-  background-color: #c98931;
-  display: block;
-  height: 0.25rem;
-  width: 0.25rem;
-  border-radius: 0.25rem;
-  margin-left: 0.75rem;
+#contact .contact-desc > li ul {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  list-style-type: disc;
+  margin-left: 1.25rem;
 }
-@media (max-width: 32.25rem) {
-  .contact {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .contact li:not(:last-child)::after {
-    display: none;
-  }
+#contact .contact-desc > li ul li {
+  line-height: 1.5;
 }
 
 footer {
