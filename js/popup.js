@@ -1,36 +1,34 @@
 $(document).ready(function () {
-  $("[for]").click(function () {
-    // 開啟 overlay
+  function openPopup(id) {
+    if (!id || $("#" + id).length === 0) return;
+
     $(".overlay").remove();
     $("body").append('<div class="overlay"></div>');
+    $(".popup").removeClass("show");
 
-    // 開啟 popup
-    let actionValue = $(this).attr("for");
+    setTimeout(() => {
+      $("#" + id).addClass("show");
+    }, 10);
+  }
 
-    if ($("body").find(".popup.show").length > 0) {
-      console.log("yes");
-      $(".popup").removeClass("show");
+  $("[for]").click(function () {
+    let id = $(this).attr("for");
+    openPopup(id);
 
-      setTimeout(() => {
-        $("#" + actionValue).addClass("show");
-      }, 300);
-    } else if ($("body").find(".popup.full").length > 0) {
-      $(".popup").removeClass("show");
-      $("#" + actionValue).addClass("show");
-    } else {
-      $(".popup").removeClass("show");
-      $("#" + actionValue).addClass("show");
-    }
+    history.replaceState(null, null, "#" + id);
   });
 
-  // 關閉 popup
-  $(document).on("click", ".overlay", function () {
+  $(document).on("click", ".overlay, .action", function () {
     $(".overlay").remove();
     $(".popup").removeClass("show");
+
+    history.replaceState(null, null, " ");
   });
 
-  $(document).on("click", ".action", function () {
-    $(".overlay").remove();
-    $(".popup").removeClass("show");
-  });
+  let hash = window.location.hash.replace("#", "");
+  if (hash) {
+    setTimeout(() => {
+      openPopup(hash);
+    }, 200);
+  }
 });
