@@ -501,6 +501,31 @@ button,
   }
 }
 
+.float-btn {
+  position: fixed;
+  right: 40px;
+  bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  color: #7896a1;
+}
+.float-btn .img {
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  background-color: #c98931;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+@media (hover: hover) {
+  .float-btn:hover .img {
+    background-color: #a16e27;
+  }
+}
+
 header {
   position: absolute;
   top: 0;
