@@ -267,6 +267,11 @@ section {
     margin: auto;
   }
 
+  .bottom-info {
+    margin-top: px(100);
+    text-align: center;
+  }
+
   @include max-to(pad) {
     padding: px(60) px(20);
 
@@ -297,6 +302,10 @@ section {
           font-size: px(48);
         }
       }
+    }
+
+    .bottom-info {
+      margin-top: px(60);
     }
   }
 }

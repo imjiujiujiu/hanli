@@ -740,6 +740,10 @@ section {
 #major button {
   margin: auto;
 }
+#major .bottom-info {
+  margin-top: 6.25rem;
+  text-align: center;
+}
 @media (max-width: 64rem) {
   #major {
     padding: 3.75rem 1.25rem;
@@ -765,6 +769,9 @@ section {
   }
   #major .items li i {
     font-size: 3rem;
+  }
+  #major .bottom-info {
+    margin-top: 3.75rem;
   }
 }
 
