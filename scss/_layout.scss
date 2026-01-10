@@ -315,9 +315,10 @@ section {
   position: relative;
 
   .attorney,
-  .teams {
+  .teams,
+  .consultant {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     gap: px(48);
 
@@ -344,41 +345,57 @@ section {
   }
 
   .attorney {
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
     li {
       color: color(white);
-      flex: 1;
-      max-width: calc((100% - px(48) * 3) / 4);
-      &:nth-child(4n),
-      &:nth-child(4n-1) {
-        margin-top: px(300);
+      width: px(300);
+      max-width: px(300);
+    }
+
+    &:nth-child(3) {
+      justify-content: flex-end;
+      margin-top: px(60);
+
+      li {
         color: color(primary-800);
       }
     }
   }
 
   .teams {
-    margin-top: px(80);
+    margin-top: px(60);
+    margin-bottom: px(160);
+
+    li {
+      color: color(primary-800);
+      max-width: calc((100% - px(48) * 3) / 4);
+    }
+  }
+
+  .consultant {
+    align-items: stretch;
+    gap: px(60);
 
     li {
       display: flex;
       gap: px(12);
-      align-items: flex-end;
-      flex: 1;
-      max-width: calc(50% - px(24));
-      min-height: px(224);
+      background-color: color(secondary);
+      color: color(white);
+      width: px(240);
+      max-width: calc((100% - px(60) * 2) / 3);
 
-      .photo {
-        flex: px(200);
-        max-width: px(200);
-        height: px(200);
-        overflow: hidden;
-        border-radius: px(500);
+      div {
+        flex-grow: 1;
+      }
 
-        img {
-          margin-bottom: px(-10);
-        }
+      @include hover {
+        background-color: color(secondary-600);
+      }
+
+      i {
+        margin-top: px(8);
       }
     }
   }
@@ -386,10 +403,10 @@ section {
   &::before {
     content: "";
     position: absolute;
-    top: 35svw;
+    top: 40svw;
     right: 0;
     left: 0;
-    height: 25svw;
+    height: 30svw;
     background-color: color(primary);
     z-index: -1;
   }
@@ -409,29 +426,51 @@ section {
 
   @include max-to(laptop) {
     &::before {
-      height: 30svw;
+      top: 40svw;
+      height: 40svw;
     }
   }
 
   @include max-to(pad) {
+    .attorney {
+      justify-content: center !important;
+    }
+
+    .consultant {
+      flex-direction: column;
+      align-items: center;
+      gap: px(32);
+    }
+
     &::before {
-      height: 35svw;
+      height: 60svw;
     }
   }
 
   @include max-to(small-pad) {
+    .attorney,
+    .teams {
+      gap: px(16);
+
+      li {
+        max-width: calc((100% - px(16)) / 2);
+      }
+    }
+
     .attorney {
       flex-wrap: wrap;
 
       li {
         flex: auto;
-        max-width: calc((100% - px(48)) / 2);
         color: color(primary-800);
         margin-top: 0 !important;
       }
     }
 
-    .teams {
+    .consultant {
+      li {
+        max-width: 100%;
+      }
     }
 
     &::before {
@@ -440,6 +479,7 @@ section {
   }
 
   @include max-to(mobile) {
+    /*
     .attorney {
       li {
         max-width: none;
@@ -455,6 +495,7 @@ section {
         max-width: none;
       }
     }
+    */
   }
 }
 
