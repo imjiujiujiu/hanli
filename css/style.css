@@ -817,19 +817,15 @@ section {
 }
 #ourTeam .attorney {
   flex-wrap: wrap;
-  justify-content: flex-start;
 }
 #ourTeam .attorney li {
-  color: #ffffff;
-  width: 18.75rem;
-  max-width: 18.75rem;
-}
-#ourTeam .attorney:nth-child(3) {
-  justify-content: flex-end;
-  margin-top: 3.75rem;
-}
-#ourTeam .attorney:nth-child(3) li {
+  width: 16.5rem;
+  max-width: 16.5rem;
   color: #15262c;
+}
+#ourTeam .attorney li[for=ChiuHsiaoHan] {
+  color: #ffffff;
+  margin-top: 0;
 }
 #ourTeam .teams {
   margin-top: 3.75rem;
@@ -899,6 +895,9 @@ section {
     align-items: center;
     gap: 2rem;
   }
+  #ourTeam .consultant li {
+    max-width: 35%;
+  }
   #ourTeam::before {
     height: 60svw;
   }
@@ -912,13 +911,20 @@ section {
   #ourTeam .teams li {
     max-width: calc((100% - 1rem) / 2);
   }
+  #ourTeam .attorney li[for=ChiuHsiaoHan], #ourTeam .attorney li[for=ChouWanLan],
+  #ourTeam .teams li[for=ChiuHsiaoHan],
+  #ourTeam .teams li[for=ChouWanLan] {
+    max-width: 55%;
+  }
   #ourTeam .attorney {
     flex-wrap: wrap;
   }
   #ourTeam .attorney li {
     flex: auto;
-    color: #15262c;
     margin-top: 0 !important;
+  }
+  #ourTeam .attorney li[for=ChiuHsiaoHan] {
+    color: #15262c;
   }
   #ourTeam .consultant li {
     max-width: 100%;
